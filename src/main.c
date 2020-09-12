@@ -641,7 +641,7 @@ void addversion(void)
     printf("Add version\n");
     printf("----------------------------------------\n");
     printf("\n");
-    printf("(0) %37s", "Cancel/End\n");
+    printf("(x) %37s", "Cancel/End\n");
     printf("\n");
     printf("----------------------------------------\n");
     printf("Enter version number: ");
@@ -649,13 +649,13 @@ void addversion(void)
     // Get version number from input
     fgets(version_number, MAXVERSIONNUMBER, stdin);
 
-    if (strlen(version_number) == 0 || isspace(version_number[0]) || !isdigit(version_number[0]))
+    if (strlen(version_number) == 0 || isspace(version_number[0]) || (!isdigit(version_number[0]) && tolower(version_number[0]) != 'x'))
     {
         return;
     }
 
     // Cancel
-    if (version_number[0] == '0')
+    if (tolower(version_number[0]) == 'x')
     {
         fclose(fp);
         state = OPEN_PROJECT;
@@ -672,7 +672,7 @@ void addversion(void)
         while (fgets(note, MAXVERSIONLINE, stdin))
         {
             // Cancel/End
-            if (note[0] == '0')
+            if (tolower(note[0]) == 'x')
             {
                 break;
             }
@@ -720,7 +720,7 @@ void deleteversion(void)
     printf("Delete version\n");
     printf("----------------------------------------\n");
     printf("\n");
-    printf("(0) %37s", "Cancel\n");
+    printf("(x) %37s", "Cancel\n");
     printf("\n");
     printf("----------------------------------------\n");
     printf("Enter version number: ");
@@ -729,13 +729,13 @@ void deleteversion(void)
     fgets(version_number, MAXVERSIONNUMBER, stdin);
     len = strlen(version_number);
 
-    if (len == 0 || isspace(version_number[0]) || !isdigit(version_number[0]))
+    if (len == 0 || isspace(version_number[0]) || (!isdigit(version_number[0]) && tolower(version_number[0]) != 'x'))
     {
         return;
     }
 
     // Cancel
-    if (version_number[0] == '0')
+    if (tolower(version_number[0]) == 'x')
     {
         fclose(fp);
         state = OPEN_PROJECT;
@@ -789,9 +789,10 @@ void about(void)
     printf("About\n");
     printf("----------------------------------------\n");
     printf("\n");
-    printf("A simple C program to create a record of\n");
-    printf("all notable changes made to a project.\n");
+    printf("A simple command line program to document\n");
+    printf("all notable changes for a list of projects.\n");
     printf("Developed by Yannis Maragos.\n");
+    printf("Copyright (c) 2020 Yannis Maragos.\n");
     printf("\n");
     printf("----------------------------------------\n");
     printf("\n");

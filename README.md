@@ -1,3 +1,3 @@
 # Changelogs
 
-A simple command line program to document all notable changes to a list of projects.
+A simple command line program to document all notable changes for a list of projects.
