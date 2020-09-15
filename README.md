@@ -48,7 +48,7 @@ See [BUGS](BUGS.md).
     it under the terms of the GNU General Public License version 2 only,
     as published by the Free Software Foundation.
 
-        http://www.apache.org/licenses/LICENSE-2.0
+        https://www.gnu.org/licenses/
     
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
