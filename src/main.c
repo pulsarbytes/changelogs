@@ -24,7 +24,6 @@
 #include <ctype.h>
 #include <string.h>
 
-#define VERSION             "1.0.0"
 #define MAXPROJECTS         100
 #define MAXLINE             100
 #define MAXVERSIONLINE      1000
@@ -49,6 +48,20 @@ enum messages_codes {
     VERSION_DELETED
 };
 
+char *project_name = NULL;
+int state = MENU;
+int message = NO_MESSAGE;
+char *projects[MAXPROJECTS];
+
+// Array of messages must be in sync with enum messages_codes
+char *messages[] = {
+    "",
+    "Project added.",
+    "Project deleted.",
+    "Version added.",
+    "Version deleted."
+};
+
 void header(void);
 void showmessages(void);
 void menu(void);
@@ -63,20 +76,6 @@ char *selectproject(void);
 void listversions(void);
 void nametofilename(char *, char *);
 void cleanup(void); 
-
-char *project_name = NULL;
-int state = MENU;
-int message = NO_MESSAGE;
-char *projects[MAXPROJECTS];
-
-// Array of messages must be in sync with enum messages_codes
-char *messages[] = {
-    "",
-    "Project added.",
-    "Project deleted.",
-    "Version added.",
-    "Version deleted."
-};
 
 int main(void)
 {
