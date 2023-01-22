@@ -1,6 +1,5 @@
 /*
  * Changelogs - A simple command line program to document all notable changes for a list of projects
- * by Yannis Maragos - https://www.pulsarbytes.net
  *
  * v1.0.1
  *
